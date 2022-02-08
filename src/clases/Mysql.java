@@ -19,11 +19,9 @@ public class Mysql {
 			conexion = DriverManager.getConnection("jdbc:mysql://192.168.0.15:3306?useTimezone=true&serverTimezone=UTC",
 					"remote", "Remote.2103");// credenciales temporales
 			System.out.print("Server Connected");
-			// fecha();
 
 		} catch (SQLException | ClassNotFoundException ex) {
 			System.out.print("No se ha podido conectar con mi base de datos");
-			// fecha();
 			System.out.println(ex.getMessage());
 
 		}
@@ -33,14 +31,13 @@ public class Mysql {
 	// METODO QUE CIERRA LA CONEXION CON SERVER MYSQL
 	public static void closeConnection() {
 		try {
-
 			conexion.close();
 			System.out.print("Server Disconnected");
-			// fecha();
+
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			System.out.print("Error cerrando conexion");
-			// fecha();
+
 		}
 	}
 
@@ -67,7 +64,7 @@ public class Mysql {
 			stdb.executeUpdate(Querydb);
 
 			String Query = "CREATE TABLE " + name + " " + query;
-		
+
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
 			System.out.println("Tabla creada con exito!");
@@ -115,8 +112,9 @@ public class Mysql {
 
 			while (resultSet.next()) {
 				System.out.println("");
-				System.out.println("Id_Guerra: " + resultSet.getString("Id_Guerra") + " " + "Nombre: " + resultSet.getString("Nombre")
-						+ " " + "Fecha_inicio:" + resultSet.getString("Fecha_Inicio") + " " + "Fecha_Fin: " + resultSet.getString("Fecha_Fin"));
+				System.out.println("Id_Guerra: " + resultSet.getString("Id_Guerra") + " " + "Nombre: "
+						+ resultSet.getString("Nombre") + " " + "Fecha_inicio:" + resultSet.getString("Fecha_Inicio")
+						+ " " + "Fecha_Fin: " + resultSet.getString("Fecha_Fin"));
 			}
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -162,11 +160,4 @@ public class Mysql {
 			JOptionPane.showMessageDialog(null, "Error borrando la tabla");
 		}
 	}
-
-//	//METODO QUE MUESTRA FECHA
-//		public static void fecha() {
-//			Date date = new Date();
-//			DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-//			System.out.println(" - " + hourdateFormat.format(date));
-//			}
 }
