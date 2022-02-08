@@ -1,3 +1,7 @@
+/*
+ * @autor: Abel Jornet, Edgar Falcó, Raúl Garrido
+ * Fecha modificación: 08/02/2021
+ */
 package main;
 
 import clases.*;
